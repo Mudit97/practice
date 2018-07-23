@@ -16,6 +16,7 @@ public class EmployeeDataService {
         }
         else{
             employeeHashMap.put(e.getId(), e);
+            System.out.println("Added successfully");
             return true;
         }
     }
@@ -49,7 +50,7 @@ public class EmployeeDataService {
         return employeeList;
     }
 
-    private EmployeeDataService() {
+    private EmployeeDataService() {                         // private constructor to make singleton class
     }
 
     public static EmployeeDataService getInstance(){

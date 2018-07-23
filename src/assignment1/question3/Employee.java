@@ -2,7 +2,7 @@ package assignment1.question3;
 
 public class Employee {
     private int id;
-    public String name;
+    private String name;
     private float salary;
 
     public int getId() {

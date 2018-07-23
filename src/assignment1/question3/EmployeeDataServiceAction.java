@@ -19,10 +19,12 @@ public class EmployeeDataServiceAction {
         Employee e5 = eds.findById(3);
         System.out.println(e5.getId()+" "+e5.getName()+" "+e5.getSalary());
         Employee e4 = new Employee(6,"Abc", 50000);
+        eds.add(e4);
         String name="Abc";
         List<Employee> employeeList = eds.findByName(name);
         for(int i=0; i<employeeList.size(); i++){
-            System.out.println(employeeList
+            Employee e11 = employeeList.get(i);
+            System.out.println(e11.getId()+" "+e11.getName()+" "+e11.getSalary());
         }
     }
 }

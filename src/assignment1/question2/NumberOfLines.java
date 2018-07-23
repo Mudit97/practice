@@ -9,7 +9,7 @@ public class NumberOfLines {
             try {
                 int n = countLines(args[i]);
             } catch (IOException e) {
-                System.out.println("Error processing file : " + args[i]);
+                System.out.println("Error in file: "+ args[i]);
             }
         }
     }
