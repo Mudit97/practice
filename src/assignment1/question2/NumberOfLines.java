@@ -1,4 +1,4 @@
-package day1;
+package assignment1.question2;
 
 import java.io.*;
 

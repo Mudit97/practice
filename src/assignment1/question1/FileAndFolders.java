@@ -1,4 +1,4 @@
-package day1;
+package assignment1.question1;
 
 import java.io.File;
 import java.util.Scanner;
