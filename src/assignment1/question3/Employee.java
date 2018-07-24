@@ -1,5 +1,7 @@
 package assignment1.question3;
 
+import java.util.Objects;
+
 public class Employee {
     private int id;
     private String name;
@@ -31,13 +33,28 @@ public class Employee {
         this.salary = salary;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Employee)) return false;
+        Employee employee = (Employee) o;
+        return getId() == employee.getId();
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(getId());
+    }
+
     public void setSalary(float salary) {
+
         this.salary = salary;
     }
 
     @Override
     public String toString() {
-        return "Employee{" +
+        return "Employee {" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", salary=" + salary +

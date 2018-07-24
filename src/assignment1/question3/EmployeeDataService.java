@@ -1,51 +1,73 @@
 package assignment1.question3;
 
 import java.util.*;
-//import java.util.List;
 
 
-public class EmployeeDataService {
+public class EmployeeDataService implements DataService<Employee , Integer> {
 
-    private  Map<Integer,Employee> employeeHashMap = new HashMap<Integer, Employee>();
+    private  Set<Employee> employeeHashSet = new HashSet<Employee>();
     private static EmployeeDataService eds = new EmployeeDataService();
 
+    @Override
     public  boolean add(Employee e){
-        if(employeeHashMap.containsKey(e.getId())){
-            System.out.println("User already exists");
-            return false;
-        }
-        else{
-            employeeHashMap.put(e.getId(), e);
-            System.out.println("Added successfully");
-            return true;
-        }
+        return employeeHashSet.add(e);
     }
 
-    public  boolean remove(Employee e){
-        if(employeeHashMap.containsKey(e.getId())){
-            System.out.println("Removing user" + e.toString());
-            employeeHashMap.remove(e.getId());
-            return true;
-        }
-        else{
-            System.out.println("User does not exist");
-            return false;
-        }
+    @Override
+    public List<Employee> getAll() {
+        List<Employee> employeeList= new ArrayList<>();
+        for(Employee E: employeeHashSet)
+            employeeList.add(E);
+        return employeeList;
     }
-    public Employee findById(int id){
-        if(employeeHashMap.containsKey(id)){
-            return employeeHashMap.get(id);
-        }
-        else{
-            System.out.println("User does not exist");
-            return null;
-        }
+
+    @Override
+    public boolean removeAll() {
+        if(employeeHashSet.isEmpty())return false;
+        employeeHashSet.clear();
+        return true;
     }
+
+    @Override
+    public boolean remove(Employee e){
+        return  employeeHashSet.remove(e);
+    }
+
+    @Override
+    public Employee findById(Integer id){
+        for(Employee E: employeeHashSet){
+            if(id == E.getId()){
+                return E;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public boolean removeById(Integer id) {
+        for(Employee E: employeeHashSet)
+            if (id == E.getId())
+                return employeeHashSet.remove(E);
+        return false;
+    }
+
     public List<Employee> findByName(String name){
         List<Employee> employeeList= new ArrayList<Employee>();
-        for(Employee e : employeeHashMap.values()){
-            if(e.getName()==name)
-                employeeList.add(employeeHashMap.get(e.getId()));
+        for(Employee e : employeeHashSet){
+            if(e.getName().toLowerCase().equals(name.toLowerCase())){
+            //    System.out.println("Added to list");
+                employeeList.add(e);
+            }
+        }
+        return employeeList;
+    }
+
+    public  List<Employee> employeeInSalaryRange(float lower, float upper){
+        List<Employee> employeeList= new ArrayList<Employee>();
+        for(Employee E: employeeHashSet){
+            if(E.getSalary() >= lower && E.getSalary()<= upper){
+                employeeList.add(E);
+            }
         }
         return employeeList;
     }
@@ -53,7 +75,7 @@ public class EmployeeDataService {
     private EmployeeDataService() {                         // private constructor to make singleton class
     }
 
-    public static EmployeeDataService getInstance(){
+    public static EmployeeDataService getInstance(){        //making the single object through getInstance method
         return eds;
     }
 }
