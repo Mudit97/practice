@@ -12,14 +12,6 @@ public class Entity {
     }
 
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Entity entity = (Entity) o;
-        return id == entity.id &&
-                Objects.equals(name, entity.name);
-    }
 
     public int getId() {
         return id;
@@ -29,10 +21,26 @@ public class Entity {
         return name;
     }
 
-   /* @Override
+    @Override
+    public String toString() {
+        return "Entity {" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 
-        public int hashCode() {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Entity)) return false;
+        Entity entity = (Entity) o;
+        return getId() == entity.getId() &&
+                Objects.equals(getName(), entity.getName());
+    }
 
-            return Objects.hash(id);
-        }*/
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(getId(), getName());
+    }
 }

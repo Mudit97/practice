@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:web="http://xmlns.jcp.org/xml/ns/javaee">
+ 
+  <servlet>
+    <servlet-name>AS</servlet-name>
+    <servlet-class>AddServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AS</servlet-name>
+    <url-pattern>/adder</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+    <servlet-name>RS</servlet-name>
+    <servlet-class>RemoveServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RS</servlet-name>
+    <url-pattern>/remover</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+    <servlet-name>FS</servlet-name>
+    <servlet-class>FindServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FS</servlet-name>
+    <url-pattern>/finder</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+    <servlet-name>SAS</servlet-name>
+    <servlet-class>ShowAllServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SAS</servlet-name>
+    <url-pattern>/showall</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>RAS</servlet-name>
+    <servlet-class>RemoveAllServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RAS</servlet-name>
+    <url-pattern>/removeall</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>FBNS</servlet-name>
+    <servlet-class>FindByNameServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FBNS</servlet-name>
+    <url-pattern>/namefinder</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>FISRS</servlet-name>
+    <servlet-class>FindInSalaryRangeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FISRS</servlet-name>
+    <url-pattern>/findinsalrange</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+</web-app>
